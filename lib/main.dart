@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'ui/flutter_brunch_challenge_app.dart';
+import 'homepage.dart';
 
 void main() {
-  runApp(FlutterBrunchChallengeApp());
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
+  }
 }
