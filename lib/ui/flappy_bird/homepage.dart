@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                     alignment: Alignment(0, -0.3),
-                    child: Text('TAP TO PLAY'),
+                    child: Text(
+                      'TAP TO PLAY',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   )
                 ],
               )),
