@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_brunch_challenge/const.dart';
+import 'package:flutter_brunch_challenge/ui/flappy_bird/flappy_bird_main.dart';
 import 'package:flutter_brunch_challenge/ui/home/component/challenge_item_widget.dart';
 import 'package:flutter_brunch_challenge/ui/home/component/sectoin_header_widget.dart';
 import 'package:flutter_brunch_challenge/ui/pacman/pacman_screen.dart';
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             context,
             MaterialPageRoute(
               builder: (BuildContext buildContext) {
-                return PacManScreen();
+                return FlappyBirdScreen();
               },
             ),
           );
