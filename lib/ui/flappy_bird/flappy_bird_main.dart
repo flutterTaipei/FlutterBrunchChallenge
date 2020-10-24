@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_brunch_challenge/ui/flappy_bird/homepage.dart';
 
 void main() {
   runApp(FlappyBirdScreen());
@@ -7,6 +8,9 @@ void main() {
 class FlappyBirdScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
   }
 }
