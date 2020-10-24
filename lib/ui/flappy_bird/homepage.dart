@@ -65,11 +65,14 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               color: Colors.brown,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [Text('SCORE'), Text('0')],
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [Text('BEST'), Text('10')],
                   )
                 ],
