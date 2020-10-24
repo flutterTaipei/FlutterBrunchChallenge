@@ -33,6 +33,8 @@ class _HomePageState extends State<HomePage> {
       height = -4.9 * time * time + 2.8 * time;
       setState(() {
         birdYaxis = initialHeight - height;
+        barrierXone -= 0.01;
+        barrierXtwo -= 0.01;
       });
       if (birdYaxis > 1) {
         timer.cancel();
