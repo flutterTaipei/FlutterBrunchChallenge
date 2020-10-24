@@ -36,4 +36,5 @@ flutter:
 
   assets:
     - images/
+    - lib/ui/flappy_bird/images/
 
