@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_brunch_challenge/ui/flappy_bird/barriers.dart';
 
 import 'bird.dart';
 
@@ -70,6 +71,9 @@ class _HomePageState extends State<HomePage> {
                             'TAP TO PLAY',
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
+                  ),
+                  MyBarrier(
+                    size: 200.0,
                   )
                 ],
               )),
