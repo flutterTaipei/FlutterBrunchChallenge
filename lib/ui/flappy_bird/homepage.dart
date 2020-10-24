@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               color: Colors.brown,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
