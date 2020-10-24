@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'bird.dart';
@@ -11,8 +13,10 @@ class _HomePageState extends State<HomePage> {
   double birdYaxis = 0;
 
   void jump() {
-    setState(() {
-      birdYaxis -= 0.1;
+    Timer.periodic(Duration(milliseconds: 100), (timer) {
+      setState(() {
+        birdYaxis -= 0.1;
+      });
     });
   }
 
