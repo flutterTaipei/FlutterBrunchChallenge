@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   double height = 0;
   double initialHeight = birdYaxis;
   bool gameHasStarted = false;
-  static double barrierXone = 0;
+  static double barrierXone = 1;
   double barrierXtwo = barrierXone + 1.5;
 
   void jump() {
