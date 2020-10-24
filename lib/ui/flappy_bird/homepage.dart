@@ -78,6 +78,13 @@ class _HomePageState extends State<HomePage> {
                     child: MyBarrier(
                       size: 200.0,
                     ),
+                  ),
+                  AnimatedContainer(
+                    alignment: Alignment(0, -1.1),
+                    duration: Duration(milliseconds: 0),
+                    child: MyBarrier(
+                      size: 200.0,
+                    ),
                   )
                 ],
               )),
