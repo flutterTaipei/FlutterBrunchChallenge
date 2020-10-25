@@ -16,8 +16,63 @@ class _HomePageState extends State<HomePage> {
   double height = 0;
   double initialHeight = birdYaxis;
   bool gameHasStarted = false;
-  static double barrierXone = 1;
-  double barrierXtwo = barrierXone + 1.5;
+  double barrierXone = 1.8;
+  double barrierXtwo = 1.8 + 1.5;
+  double barrierXthree = 1.8 + 3;
+  bool gameStarted = false;
+  int score = 0;
+  int highscore = 0;
+
+  @override
+  void initState() {
+    setState(() {
+      birdYaxis = 0;
+      time = 0;
+      height = 0;
+      initialHeight = birdYaxis;
+      barrierXone = 1.8;
+      barrierXtwo = 1.8 + 1.5;
+      barrierXthree = 1.8 + 3;
+      gameStarted = false;
+      score = 0;
+    });
+  }
+
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Colors.brown,
+            title: Text(
+              "GAME OVER",
+              style: TextStyle(color: Colors.white),
+            ),
+            content: Text(
+              "Score: " + score.toString(),
+              style: TextStyle(color: Colors.white),
+            ),
+            actions: [
+              FlatButton(
+                child: Text(
+                  "PLAY AGAIN",
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  if (score > highscore) {
+                    highscore = score;
+                  }
+                  initState();
+                  setState(() {
+                    gameHasStarted = false;
+                  });
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
+  }
 
   void jump() {
     setState(() {
@@ -28,31 +83,56 @@ class _HomePageState extends State<HomePage> {
 
   void startGame() {
     gameHasStarted = true;
-    Timer.periodic(Duration(milliseconds: 50), (timer) {
-      time += 0.04;
+    Timer.periodic(Duration(milliseconds: 60), (timer) {
+      time += 0.05;
       height = -4.9 * time * time + 2.8 * time;
       setState(() {
         birdYaxis = initialHeight - height;
-      });
-      setState(() {
         if (barrierXone < -2) {
-          barrierXone += 3.5;
+          score++;
+          barrierXone += 4.5;
         } else {
-          barrierXone -= 0.05;
+          barrierXone -= 0.04;
         }
-      });
-      setState(() {
         if (barrierXtwo < -2) {
-          barrierXtwo += 3.5;
+          score++;
+
+          barrierXtwo += 4.5;
         } else {
-          barrierXtwo -= 0.05;
+          barrierXtwo -= 0.04;
+        }
+        if (barrierXthree < -2) {
+          score++;
+
+          barrierXthree += 4.5;
+        } else {
+          barrierXthree -= 0.04;
         }
       });
-      if (birdYaxis > 1) {
+      if (birdYaxis > 1.3 || checkLose()) {
         timer.cancel();
-        gameHasStarted = false;
+        _showDialog();
       }
     });
+  }
+
+  bool checkLose() {
+    if (barrierXone < 0.2 && barrierXone > -0.2) {
+      if (birdYaxis < -0.3 || birdYaxis > 0.7) {
+        return true;
+      }
+    }
+    if (barrierXtwo < 0.2 && barrierXtwo > -0.2) {
+      if (birdYaxis < -0.8 || birdYaxis > 0.4) {
+        return true;
+      }
+    }
+    if (barrierXthree < 0.2 && barrierXthree > -0.2) {
+      if (birdYaxis < -0.4 || birdYaxis > 0.7) {
+        return true;
+      }
+    }
+    return false;
   }
 
   @override
@@ -96,13 +176,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     AnimatedContainer(
-                      alignment: Alignment(barrierXone, -1.1),
-                      duration: Duration(milliseconds: 0),
-                      child: MyBarrier(
-                        size: 200.0,
-                      ),
-                    ),
-                    AnimatedContainer(
                       alignment: Alignment(barrierXtwo, 1.1),
                       duration: Duration(milliseconds: 0),
                       child: MyBarrier(
@@ -110,7 +183,28 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     AnimatedContainer(
+                      alignment: Alignment(barrierXthree, 1.1),
+                      duration: Duration(milliseconds: 0),
+                      child: MyBarrier(
+                        size: 150.0,
+                      ),
+                    ),
+                    AnimatedContainer(
+                      alignment: Alignment(barrierXone, -1.1),
+                      duration: Duration(milliseconds: 0),
+                      child: MyBarrier(
+                        size: 200.0,
+                      ),
+                    ),
+                    AnimatedContainer(
                       alignment: Alignment(barrierXtwo, -1.1),
+                      duration: Duration(milliseconds: 0),
+                      child: MyBarrier(
+                        size: 250.0,
+                      ),
+                    ),
+                    AnimatedContainer(
+                      alignment: Alignment(barrierXthree, -1.1),
                       duration: Duration(milliseconds: 0),
                       child: MyBarrier(
                         size: 250.0,
@@ -138,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 20,
                         ),
-                        Text('0',
+                        Text(score.toString(),
                             style:
                                 TextStyle(color: Colors.white, fontSize: 35)),
                       ],
@@ -152,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 20,
                         ),
-                        Text('10',
+                        Text(highscore.toString(),
                             style:
                                 TextStyle(color: Colors.white, fontSize: 35)),
                       ],
