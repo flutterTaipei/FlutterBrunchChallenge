@@ -12,6 +12,7 @@
 2020/09/19 參與者分享：
 - Joshua [Fantasycheese/FlutterBrunchChallenge](https://github.com/Fantasycheese/FlutterBrunchChallenge)
 - Ｍaxi [maxi119/FlutterBrunchChallenge](https://github.com/maxi119/FlutterBrunchChallenge/tree/challenge/20200919)
+- Claire [claireliu14/FlutterBrunchChallenge](https://github.com/claireliu14/FlutterBrunchChallenge/tree/feature/20200919_pacman_sample)
 - Rebecca [hl3hl3/FlutterBrunchChallenge](https://github.com/hl3hl3/FlutterBrunchChallenge/tree/feature/20200919_pacman)
 
 #### Flutter Brunch 2020/08 小挑戰 : [Widget 練習](https://github.com/flutterTaipei/FlutterBrunchChallenge/tree/feature/20200829_challenge)
