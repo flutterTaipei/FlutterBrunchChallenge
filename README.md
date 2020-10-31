@@ -3,6 +3,73 @@
 這是 Flutter Brunch 現場小挑戰活動 使用的初始專案，
 從 2020/08/29 開始。
 
+## Flutter Brunch 2020/10 小挑戰
+
+9 月玩了 PACMAN，10 月換 FlappyBird！
+還是原作者的實作影片連結（長度約 60 分鐘）：     
+https://www.youtube.com/watch?v=vgmVPpFP0fI
+
+P.S. 原作者有在網站上販售程式碼，有興趣的人也可以參考喔
+
+#### 最終樣貌
+<img src="https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/develop/readme/challenge202010/20201030_flappybird_final.png" width="600">
+需要處理的大致有：
+
+- 背景和鳥
+- 點擊畫面時讓鳥先跳起再墜落
+- 障礙物
+
+#### 1. 背景和鳥
+<img src="https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/develop/readme/challenge202010/20201031_flappybird_01_bg.png" width="600">
+Tips：
+
+- 使用 Column、Expanded 兜出色塊範圍
+- 另開檔案放 Bird Widget
+
+#### 2. 點擊畫面時讓鳥先跳起再墜落
+<img src="https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/develop/readme/challenge202010/20201031_flappybird_02_math.png" width="600">
+Tips：
+
+- 使用 AnimatedContainer，透過 [Alignment](https://api.flutter.dev/flutter/painting/Alignment-class.html) 移動鳥的位置 
+- 宣告 birdYaxis 紀錄鳥的 alignment y
+- 宣告 startGame() 開始遊戲
+- 宣告 jump() 點擊畫面後跳動
+
+startGame() 
+- 使用 Timer 更新鳥下墜時的位置
+- 公式為 (-9.8t²)/2 + vt
+- t=時間，可先 +=0.1，再調整成自己覺得適合的數值
+- v=加速度，可先用 5，再調整成自己覺得適合的數值
+- 若鳥砸到地上就遊戲結束（cancel timer）
+
+jump() // 改變鳥的高度
+- 重置 Timer 用的時間（t 歸零）
+- 重置初始高度為鳥目前的高度（initialHeight=birdYaxis）
+
+
+#### 3. 計分板與障礙物
+<img src="https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/develop/readme/challenge202010/20201031_flappybird_03_score.png" width="600">
+<img src="https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/develop/readme/challenge202010/20201031_flappybird_04_barriers.png" width="600">
+Tips：
+
+- 另開檔案放 Barrier Widget
+- 畫面上需要圖層概念的遊戲區塊，使用 Stack
+- 要讓障礙物移動，方式和鳥類似，只是換成動 alignment x
+- 要讓障礙物循環出現，可以在障礙物的 x 超出螢幕範圍時，再重置回螢幕另一頭
+
+最後還有鳥撞到障礙物時的判斷，這部分就不在影片中，    
+可以自己研究看看，參考這次
+[由 Vincent 寫的 20201031_flappybird_sample](https://github.com/flutterTaipei/FlutterBrunchChallenge/tree/feature/20201031_flappybird_sample)
+或 參考[原作者](https://mitchkoko.app/)販售的程式碼囉！
+
+
+
+
+
+
+
+
+# 過去的小挑戰
 
 ## Flutter Brunch 2020/09 小挑戰
 
@@ -63,10 +130,7 @@ Tips：
 
 還有 Ghost 的部分，不過到了這邊，也差不多可以玩啦！！    
     
-    
-    
 
-# 過去的小挑戰
 ## Flutter Brunch 2020/08 小挑戰
 #### 1. Widget 練習：Drawer
 - 幫頁面加上 Drawer。參考： https://flutter.dev/docs/cookbook/design/drawer
