@@ -11,6 +11,12 @@ https://www.youtube.com/watch?v=vgmVPpFP0fI
 
 P.S. 原作者有在網站上販售程式碼，有興趣的人也可以參考喔
 
+#### 小挑戰起始位置
+- 請使用 branch：[feature/20201031_flappybird](https://github.com/flutterTaipei/FlutterBrunchChallenge/tree/feature/20201031_flappybird)
+- 實作頁面位置：[lib/ui/flappybird/flappybird_screen.dart](https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/feature/20201031_flappybird/lib/ui/flappybird/flappy_bird_screen.dart)     
+- 範例在 branch [feature/20201031_flappybird_sample](https://github.com/flutterTaipei/FlutterBrunchChallenge/tree/feature/20201031_flappybird_sample)（已 merge 回 develop）    
+
+
 #### 最終樣貌
 <img src="https://github.com/flutterTaipei/FlutterBrunchChallenge/blob/develop/readme/challenge202010/20201030_flappybird_final.png" width="600">
 需要處理的大致有：
