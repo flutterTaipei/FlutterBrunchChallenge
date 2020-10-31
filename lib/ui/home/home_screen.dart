@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_brunch_challenge/const.dart';
+import 'package:flutter_brunch_challenge/ui/flappybird/flappy_bird_screen.dart';
 import 'package:flutter_brunch_challenge/ui/home/component/challenge_item_widget.dart';
 import 'package:flutter_brunch_challenge/ui/home/component/sectoin_header_widget.dart';
 import 'package:flutter_brunch_challenge/ui/pacman/pacman_screen.dart';
@@ -35,12 +36,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 text: 'Challenges',
                 textColor: Colors.teal.shade400,
               ),
+              _challengeItem20201031(),
               _challengeItem20200919(),
               _challengeItem20200829(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _challengeItem20201031() {
+    return ChallengeItemWidget(
+      backgroundColor: Colors.teal.shade200,
+      onPressed: () {
+        setState(() {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext buildContext) {
+                return FlappyBirdScreen();
+              },
+            ),
+          );
+        });
+      },
+      displayText: 'Flutter Brunch 2020/10 '
+          '\n>>>> Flappy Bird CHALLENGE <<<<',
+      textColor: Colors.white,
     );
   }
 
